@@ -1,6 +1,7 @@
 {
   "files": [
-    "doc/openstack-ops/bk_ops_guide.xml"
+    "doc/openstack-ops/bk_ops_guide.xml",
+    "LICENSE"
   ],
   "formats": {
     "pdf": {
