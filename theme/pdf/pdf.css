@@ -13,7 +13,7 @@ section.add_padding[data-type="chapter"] {
 }
 
 @page longpage {
-  padding-bottom: 0.1in;
+  padding-bottom: 0.6in;
 }
 
 @page longpage:first { @bottom-right { content: counter(page) } }
