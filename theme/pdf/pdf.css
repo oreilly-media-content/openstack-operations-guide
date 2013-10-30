@@ -1,3 +1,7 @@
 @charset "UTF-8";
 
 thead { display: table-header-group }
+
+table.keep-together {
+  page-break-inside: avoid;
+}
