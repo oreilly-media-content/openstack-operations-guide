@@ -6,17 +6,14 @@ table.keep-together {
   page-break-inside: avoid;
 }
 
-@page chapter:first { @bottom-right { content: counter(page) } }
-
-section.add_padding[data-type="chapter"] {
+section[data-type="chapter"].add_padding {
   page: longpage;
 }
 
-@page longpage {
-  padding-bottom: 0;
+@page longpage:first { 
+@bottom-right { content: counter(page) } 
+  padding-bottom: 0.6in;
 }
-
-@page longpage:first { @bottom-right { content: counter(page) } }
 
 @page longpage:blank {
   @bottom-left { content: none }
