@@ -6,6 +6,10 @@ table.keep-together {
   page-break-inside: avoid;
 }
 
+screen.keep-together {
+  page-break-inside: avoid;
+}
+
 section[data-type="chapter"].add_padding {
   page: longpage;
 }
