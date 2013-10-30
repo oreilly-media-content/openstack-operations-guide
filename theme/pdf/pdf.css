@@ -5,3 +5,32 @@ thead { display: table-header-group }
 table.keep-together {
   page-break-inside: avoid;
 }
+
+@page chapter:first { @bottom-right { content: counter(page) } }
+
+section.add_padding[data-type="chapter"] {
+  page: longpage;
+}
+
+@page longpage {
+  padding-bottom: 0.1in;
+}
+
+@page longpage:first { @bottom-right { content: counter(page) } }
+
+@page longpage:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+
+@page longpage:left {
+  @bottom-left {
+    content: counter(page)"\2003\007C\2003""Chapter "counter(ChapterNumber)":\0020"string(ChapterTitle);
+  }
+}
+
+@page longpage:right {
+  @bottom-right {
+    content: string(SectionTitle)"\2003\007C\2003"counter(page);
+  }
+}

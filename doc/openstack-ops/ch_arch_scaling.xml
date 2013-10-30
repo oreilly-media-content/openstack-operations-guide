@@ -186,7 +186,7 @@
                 <emphasis>zones</emphasis> and <emphasis>host
                 aggregates</emphasis>. Each method provides different
             functionality, as described in the following table:</para>
-        <informaltable rules="all">
+        <informaltable rules="all" role="keep-together">
             <thead>
                 <tr>
                     <th/>
