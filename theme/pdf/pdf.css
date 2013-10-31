@@ -29,6 +29,16 @@ screen.keep-together {
   page-break-inside: avoid;
 }
 
+ol.procedure.keep-together {
+  page-break-inside: avoid;
+}
+
+/* No numbers on procedure titles */
+
+ol li.procedure-title {
+  list-style-type: none;
+}
+
 /* Enable add_padding role for pagebreaking*/
 
 section[data-type="chapter"].add_padding {

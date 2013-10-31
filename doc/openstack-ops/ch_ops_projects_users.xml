@@ -138,7 +138,7 @@
     <section xml:id="cli_set_compute_quotas">
       <title>Set Compute Service Quotas</title>
 
-      <para>As an administrative user, you can update the Compute Service
+      <para role="keep_with_next">As an administrative user, you can update the Compute Service
       quotas for an existing tenant, as well as update the quota defaults for
       a new tenant.</para>
 
@@ -280,7 +280,7 @@
         <literal>python-novaclient</literal> package, to view and update
         tenant quotas.</para>
 
-        <procedure>
+        <procedure role="keep-together">
           <title>To view and update default quota values</title>
 
           <step>
