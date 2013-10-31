@@ -4,13 +4,14 @@
 
 /* Enable keep-together role for pagebreaking */
 
-ol.procedure.keep-together {
+div.keep-together {
   page-break-inside: avoid;
 }
 
 /* Style procedure titles */
 
 p.procedure-title {
+  font-family: "MyriadPro-SemiboldCond";
   font-weight: 600;
 }
 
