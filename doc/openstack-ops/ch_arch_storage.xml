@@ -211,7 +211,7 @@ format="SVG" scale="60"/>
         <para>To deploy your storage by using entirely commodity
             hardware, you can use a number of open-source packages, as
             shown in the following table: </para>
-        <informaltable rules="all" row="keep-together">
+        <informaltable rules="all" role="keep-together">
             <thead>
                 <tr>
                     <th> </th>
