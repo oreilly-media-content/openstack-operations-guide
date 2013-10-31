@@ -142,7 +142,7 @@
         </para>
         <?hard-pagebreak?>
         <para>Flavors define a number of elements:</para>
-        <informaltable rules="all">
+        <informaltable role="keep-together"  rules="all">
             <col width="25%"/>
             <col width="75%"/>
             <tbody>
