@@ -174,7 +174,7 @@
     own strengths and weaknesses. The selection of a network manager changes
     your network topology, so the choice should be made carefully.</para>
 
-    <informaltable rules="all">
+    <informaltable role="keep-together" rules="all">
       <thead>
         <tr valign="top">
           <th>Type</th>
