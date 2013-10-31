@@ -843,7 +843,7 @@ Optional snapshot description. (Default=None)</programlisting>
             additional properties in the glance database. These
             properties are found in the image_properties table, and
             include:</para>
-        <informaltable rules="all" role="keep-together">
+        <informaltable rules="all">
             <thead>
                 <tr>
                     <th>name</th>
