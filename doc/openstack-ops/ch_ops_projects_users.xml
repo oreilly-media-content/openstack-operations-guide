@@ -454,8 +454,8 @@
         <title>View and update Block Storage quotas for a tenant
         (project)</title>
 
-        <para role="keep_with_next">As an administrative user, you can use the
-        <command>cinder quota-*</command> commands, which are provided by the
+        <para>As an administrative user, you can use the <command>cinder
+        quota-*</command> commands, which are provided by the
         <literal>python-cinderclient</literal> package, to view and update
         tenant quotas.</para>
 
