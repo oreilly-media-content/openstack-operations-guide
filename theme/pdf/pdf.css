@@ -1,3 +1,44 @@
 @charset "UTF-8";
 
-thead { display: table-header-group }
+/* Customizations for OpenStack Operations Guide */
+
+/* Enable keep-together role for pagebreaking */
+
+div.keep-together {
+  page-break-inside: avoid;
+}
+
+/* Style procedure titles */
+
+p.procedure-title {
+  font-family: "MyriadPro-SemiboldCond";
+  font-weight: 600;
+}
+
+/* Enable add_padding role for pagebreaking*/
+
+section[data-type="chapter"].add_padding {
+  page: longpage;
+}
+
+@page longpage:first { 
+@bottom-right { content: counter(page) } 
+  padding-bottom: 0.6in;
+}
+
+@page longpage:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+
+@page longpage:left {
+  @bottom-left {
+    content: counter(page)"\2003\007C\2003""Chapter "counter(ChapterNumber)":\0020"string(ChapterTitle);
+  }
+}
+
+@page longpage:right {
+  @bottom-right {
+    content: string(SectionTitle)"\2003\007C\2003"counter(page);
+  }
+}

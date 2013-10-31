@@ -35,7 +35,7 @@
             You can use these ratios to determine how much additional
             infrastructure you need to support your cloud.</para>
         <para>The default OpenStack flavors are:</para>
-        <informaltable rules="all">
+        <informaltable rules="all" role="keep-together">
             <thead>
                 <tr>
                     <th align="left">Name</th>
@@ -186,7 +186,7 @@
                 <emphasis>zones</emphasis> and <emphasis>host
                 aggregates</emphasis>. Each method provides different
             functionality, as described in the following table:</para>
-        <informaltable rules="all">
+        <informaltable rules="all" role="keep-together">
             <thead>
                 <tr>
                     <th/>

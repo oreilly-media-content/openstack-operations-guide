@@ -359,8 +359,7 @@
         </procedure>
 
         <procedure>
-          <title role="keep_with_next">To update quota values for a tenant
-          (project)</title>
+          <title>To update quota values for a tenant (project)</title>
 
           <step>
             <para>Obtain the tenant ID, as follows:</para>
@@ -509,8 +508,7 @@
         </procedure>
 
         <procedure>
-          <title role="keep_with_next">To update Compute service
-          quotas</title>
+          <title>To update Compute service quotas</title>
 
           <step>
             <para>Place the tenant ID in a useable variable, as
