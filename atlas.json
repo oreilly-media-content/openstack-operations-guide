@@ -4,7 +4,8 @@
   ],
   "formats": {
     "pdf": {
-      "version": "web"
+      "version": "web",
+      "toc": true
     },
     "epub": {},
     "mobi": {},
