@@ -138,9 +138,9 @@
     <section xml:id="cli_set_compute_quotas">
       <title>Set Compute Service Quotas</title>
 
-      <para role="keep_with_next">As an administrative user, you can update
-      the Compute Service quotas for an existing tenant, as well as update the
-      quota defaults for a new tenant.</para>
+      <para role="keep_with_next">As an administrative user, you can update the Compute Service
+      quotas for an existing tenant, as well as update the quota defaults for
+      a new tenant.</para>
 
       <table rules="all">
         <caption>Compute Quota Descriptions</caption>
@@ -411,7 +411,7 @@
       Service quotas for a tenant, as well as update the quota defaults for a
       new tenant.</para>
 
-      <para><table role="keep-together" rules="all">
+      <para><table rules="all">
           <caption>Block Storage Quota Descriptions</caption>
 
           <col width="20%" />
