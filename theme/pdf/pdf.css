@@ -6,6 +6,7 @@
 
 figure figcaption {
   page-break-after: avoid;
+  page-break-before: auto;
 }
 
 /* Allow table headers to repeat on subsequent pages */
