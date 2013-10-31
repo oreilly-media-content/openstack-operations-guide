@@ -8,10 +8,10 @@ ol.procedure.keep-together {
   page-break-inside: avoid;
 }
 
-/* No numbers on procedure titles */
+/* Style procedure titles */
 
-ol li.procedure-title {
-  list-style-type: none;
+p.procedure-title {
+  font-weight: 600;
 }
 
 /* Enable add_padding role for pagebreaking*/
