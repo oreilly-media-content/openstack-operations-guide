@@ -117,10 +117,9 @@
 
 		</revhistory>
 	</info>
-	<!-- front matter -->
-	<xi:include href="acknowledgements.xml"/>
-	<xi:include href="ch_ops_dochistory.xml"/>
-	<xi:include href="preface_ops.xml"/>
+        <!-- front matter -->
+        <xi:include href="acknowledgements.xml"/>
+    <xi:include href="preface_ops.xml"/>
 
 	<!--<xi:include href="part_architecture.xml"/> -->
 	<xi:include href="ch_arch_provision.xml"/>
