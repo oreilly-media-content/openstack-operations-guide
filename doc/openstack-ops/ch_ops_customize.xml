@@ -265,7 +265,7 @@ SWIFT_BRANCH=stable/folsom
             
 disable_all_services
 enable_service key swift mysql</programlisting>
-        <para>
+        <para role="keep_with_next">
             <emphasis role="bold">[2] All other projects
                 localrc</emphasis>
         </para>

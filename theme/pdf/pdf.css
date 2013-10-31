@@ -1,6 +1,24 @@
 @charset "UTF-8";
 
+/* Customizations for OpenStack Operations Guide */
+
+/* No page break between figcaption and image */
+
+figure figcaption {
+  page-break-after: avoid;
+}
+
+/* Allow table headers to repeat on subsequent pages */
+
 thead { display: table-header-group }
+
+/* Enable keep_with_next role for pagebreaking */
+
+p.keep_with_next {
+  page-break-after: avoid;
+}
+
+/* Enable keep-together role for pagebreaking */
 
 table.keep-together {
   page-break-inside: avoid;
@@ -9,6 +27,8 @@ table.keep-together {
 screen.keep-together {
   page-break-inside: avoid;
 }
+
+/* Enable add_padding role for pagebreaking*/
 
 section[data-type="chapter"].add_padding {
   page: longpage;
