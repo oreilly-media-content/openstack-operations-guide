@@ -47,13 +47,14 @@
   </section>
 
   <section xml:id="public_addressing">
-    <title role="keep_with_next">Public Addressing Options</title>
+    <title>Public Addressing Options</title>
 
-    <para>There are two main types of IP addresses for guest virtual machines:
-    Fixed IPs and Floating IPs. Fixed IPs are assigned to instances on boot,
-    whereas Floating IP addresses can change their association between
-    instances by action of the user. Both types of IP addresses can either be
-    public or private, depending on your use case.</para>
+    <para role="keep_with_next">There are two main types of IP addresses for
+    guest virtual machines: Fixed IPs and Floating IPs. Fixed IPs are assigned
+    to instances on boot, whereas Floating IP addresses can change their
+    association between instances by action of the user. Both types of IP
+    addresses can either be public or private, depending on your use
+    case.</para>
 
     <para>Fixed IP addresses are required, whereas it is possible to run
     OpenStack without Floating IPs. One of the most common use cases for

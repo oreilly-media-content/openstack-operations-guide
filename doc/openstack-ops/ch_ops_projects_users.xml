@@ -509,7 +509,8 @@
         </procedure>
 
         <procedure>
-          <title>To update Compute service quotas</title>
+          <title role="keep_with_next">To update Compute service
+          quotas</title>
 
           <step>
             <para>Place the tenant ID in a useable variable, as
