@@ -12,8 +12,8 @@
     <table>
       <thead>
         <tr>
-          <td>Revision Date</td>
-          <td>Summary of Changes</td>
+          <th>Revision Date</th>
+          <th>Summary of Changes</th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,9 @@
           <p>2013-05-13</p>
         </td>
         <td>
-          <p>Updated description of availability zones.</p>
+          <ul>
+            <li><p>Updated description of availability zones.</p></li>
+          </ul>
         </td>
       </tr>
       <tr>
@@ -30,7 +32,9 @@
           <p>2013-04-02</p>
         </td>
         <td>
-          <p>Fixes to ensure samples fit in page size and notes are formatted.</p>
+          <ul>
+            <li><p>Fixes to ensure samples fit in page size and notes are formatted.</p></li>
+          </ul>
         </td>
       </tr>
       <tr>
@@ -38,7 +42,9 @@
           <p>2013-03-22</p>
         </td>
         <td>
-          <p>Stopped chunking in HTML output.</p>
+          <ul>
+            <li><p>Stopped chunking in HTML output.</p></li>
+          </ul>
         </td>
       </tr>
       <tr>
@@ -59,7 +65,9 @@
           <p>2013-03-11</p>
         </td>
         <td>
-          <p>Moved files to OpenStack github repository.</p>
+          <ul>
+            <li><p>Moved files to OpenStack github repository.</p></li>
+          </ul>
         </td>
       </tr>
       </tbody>
