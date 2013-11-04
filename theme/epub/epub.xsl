@@ -24,6 +24,7 @@
     </xsl:copy>
   </xsl:template>
 
+  <!-- Insert copyright page when preprocessing HTML -->
   <xsl:template match="h:section[contains(@data-type, 'copyright-page')]" mode="composite-html">
     <xsl:copy-of select="document('theme/pdf/copyright.html')"/>
   </xsl:template>
@@ -39,6 +40,50 @@
       <xsl:call-template name="generate-cover-html"/>
     </xsl:if>
     <xsl:apply-imports/>
+  </xsl:template>
+
+    <!-- Generate an NCX file from HTMLBook source. -->
+    <!-- Overridden here to generate NCX from composited HTML -->
+  <xsl:template name="generate.ncx.toc">
+    <exsl:document href="{$full.ncx.filename}" method="xml" encoding="UTF-8">
+      <ncx version="2005-1">
+	<head>
+	  <xsl:if test="$generate.cover.html = 1">
+	    <meta name="cover" content="{$epub.cover.html.id}"/>
+	  </xsl:if>
+	  <meta name="dtb:uid" content="{$metadata.unique-identifier}"/>
+	</head>
+	<docTitle>
+	  <text>
+	    <xsl:value-of select="$metadata.title"/>
+	  </text>
+	</docTitle>
+	<xsl:variable name="navMap">
+	  <navMap>
+	    <!-- Only put root chunk in the NCX TOC if $ncx.include.root.chunk is enabled -->
+	    <xsl:if test="$ncx.include.root.chunk = 1">
+	      <navPoint>
+		<xsl:attribute name="id">
+		  <!-- Use OPF ids in NCX as well -->
+		  <xsl:apply-templates select="/*" mode="opf.id"/>
+		</xsl:attribute>
+		<navLabel>
+		  <text>
+		    <!-- Look for title first in head, then as child of body -->
+		    <xsl:value-of select="(//h:head/h:title|//h:body/h:h1)[1]"/>
+		  </text>
+		</navLabel>
+	      <content src="{$root.chunk.filename}"/>
+	      </navPoint>
+	    </xsl:if>
+	    <!-- BEGIN ORM OVERRIDE -->
+	    <xsl:apply-templates select="exsl:node-set($html-composited)//h:html" mode="ncx.toc.gen"/>
+	    <!-- END ORM OVERRIDE -->
+	  </navMap>
+	</xsl:variable>
+	<xsl:apply-templates select="exsl:node-set($navMap)" mode="output.navMap.with.playOrder"/>
+      </ncx>
+    </exsl:document>
   </xsl:template>
 
 <!-- Pull in author name from OpenStack source -->
