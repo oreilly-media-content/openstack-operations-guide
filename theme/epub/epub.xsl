@@ -84,4 +84,6 @@
    </table>
 </xsl:template>
 
+<xsl:template match="h:img/@width|h:img/@height"/>
+
 </xsl:stylesheet>
