@@ -7,6 +7,8 @@
                 exclude-result-prefixes="h exsl">
 
 <!-- Pull in custom HTML content prior to generating EPUB -->
+<!-- Commenting out the below, which isn't functional yet -->
+<!--
   <xsl:template match="/">
     <xsl:variable name="html-composited">
       <wrapper>
@@ -25,8 +27,10 @@
       <xsl:apply-templates select="@*|node()" mode="composite-html"/>
     </xsl:copy>
   </xsl:template>
+-->
 
   <!-- Insert copyright page when preprocessing HTML -->
+  <!--
   <xsl:template match="h:section[contains(@data-type, 'copyright-page')]" mode="composite-html">
     <xsl:copy-of select="document('theme/pdf/copyright.html')"/>
   </xsl:template>
@@ -46,9 +50,10 @@
     </xsl:if>
     <xsl:apply-imports/>
   </xsl:template>
-
+-->
     <!-- Generate an NCX file from HTMLBook source. -->
     <!-- Overridden here to generate NCX from composited HTML -->
+    <!--
   <xsl:template name="generate.ncx.toc">
     <xsl:param name="html-composited"/>
     <exsl:document href="{$full.ncx.filename}" method="xml" encoding="UTF-8">
@@ -65,32 +70,32 @@
 	  </text>
 	</docTitle>
 	<xsl:variable name="navMap">
-	  <navMap>
+	  <navMap> -->
 	    <!-- Only put root chunk in the NCX TOC if $ncx.include.root.chunk is enabled -->
-	    <xsl:if test="$ncx.include.root.chunk = 1">
+<!--	    <xsl:if test="$ncx.include.root.chunk = 1">
 	      <navPoint>
-		<xsl:attribute name="id">
+		<xsl:attribute name="id"> -->
 		  <!-- Use OPF ids in NCX as well -->
-		  <xsl:apply-templates select="exsl:node-set($html-composited)//h:html" mode="opf.id"/>
+<!--		  <xsl:apply-templates select="exsl:node-set($html-composited)//h:html" mode="opf.id"/>
 		</xsl:attribute>
 		<navLabel>
-		  <text>
+		  <text> -->
 		    <!-- Look for title first in head, then as child of body -->
-		    <xsl:value-of select="(//h:head/h:title|//h:body/h:h1)[1]"/>
+<!--		    <xsl:value-of select="(//h:head/h:title|//h:body/h:h1)[1]"/>
 		  </text>
 		</navLabel>
 	      <content src="{$root.chunk.filename}"/>
 	      </navPoint>
-	    </xsl:if>
+	    </xsl:if> -->
 	    <!-- BEGIN ORM OVERRIDE -->
 	    <xsl:apply-templates select="exsl:node-set($html-composited)//h:html" mode="ncx.toc.gen"/>
 	    <!-- END ORM OVERRIDE -->
-	  </navMap>
+<!--	  </navMap>
 	</xsl:variable>
 	<xsl:apply-templates select="exsl:node-set($navMap)" mode="output.navMap.with.playOrder"/>
       </ncx>
     </exsl:document>
-  </xsl:template>
+  </xsl:template> -->
 
 <!-- Pull in author name from OpenStack source -->
 <xsl:template match="h:section[contains(@data-type, 'titlepage')]/h:h2">
