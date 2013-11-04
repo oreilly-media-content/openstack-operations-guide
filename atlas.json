@@ -7,8 +7,12 @@
       "version": "web",
       "toc": true
     },
-    "epub": {},
-    "mobi": {},
+    "epub": {
+      "toc": true
+    },
+    "mobi": {
+      "toc": true
+    },
     "html": {}
   },
   "theme": "oreillymedia/animal_theme",
