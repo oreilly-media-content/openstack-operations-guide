@@ -7,8 +7,9 @@
 <!-- Pull in EPUB ad -->
 <xsl:template match="h:body[contains(@data-type, 'book')]">
  <xsl:copy>
+   <xsl:copy-of select="@"
    <xsl:copy-of select="document('theme/ad.html')"/>
-   <xsl:copy-of select="@*" />
+   <xsl:copy-of select="node()" />
  </xsl:copy>
 </xsl:template>
 
