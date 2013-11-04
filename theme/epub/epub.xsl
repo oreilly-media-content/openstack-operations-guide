@@ -1,13 +1,45 @@
 <xsl:stylesheet version="1.0"
+		xmlns:exsl="http://exslt.org/common"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:h="http://www.w3.org/1999/xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="h">
+		extension-element-prefixes="exsl"
+                exclude-result-prefixes="h exsl">
 
-<!-- Pull in O'Reilly copyright page info -->
-<xsl:template match="h:section[contains(@data-type, 'copyright-page')]">
+<!-- Pull in custom HTML content prior to generating EPUB -->
+  <xsl:template match="/">
+    <xsl:variable name="html-composited">
+      <wrapper>
+	<xsl:copy>
+	  <xsl:apply-templates select="*" mode="composite-html"/>
+	</xsl:copy>
+      </wrapper>
+    </xsl:variable>
+    <xsl:apply-templates select="exsl:node-set($html-composited)//h:html"/>
+  </xsl:template>
+
+  <xsl:template match="@*|node()" mode="composite-html">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" mode="composite-html"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="h:section[contains(@data-type, 'copyright-page')]" mode="composite-html">
     <xsl:copy-of select="document('theme/pdf/copyright.html')"/>
-</xsl:template>
+  </xsl:template>
+  
+  <xsl:template match="h:html">
+    <xsl:call-template name="generate.mimetype"/>
+    <xsl:call-template name="generate.meta-inf"/>
+    <xsl:call-template name="generate.opf"/>
+    <xsl:if test="$generate.ncx.toc = 1">
+      <xsl:call-template name="generate.ncx.toc"/>
+    </xsl:if>
+    <xsl:if test="$generate.cover.html = 1">
+      <xsl:call-template name="generate-cover-html"/>
+    </xsl:if>
+    <xsl:apply-imports/>
+  </xsl:template>
 
 <!-- Pull in author name from OpenStack source -->
 <xsl:template match="h:section[contains(@data-type, 'titlepage')]/h:h2">
