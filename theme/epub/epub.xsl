@@ -175,4 +175,7 @@
    </table>
 </xsl:template>
 
+<!-- No widths on images -->
+<xsl:template match="h:img/@width|h:img/@height"/>
+
 </xsl:stylesheet>
