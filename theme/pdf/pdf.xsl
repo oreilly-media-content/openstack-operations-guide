@@ -6,7 +6,8 @@
                 exclude-result-prefixes="exsl h">
 
 <!-- Pull in O'Reilly copyright page info -->
-<xsl:template match="section[data-type='copyright-page']">
+<xsl:template match="section[data-type='copyright-page']"/>
+<!--
   <section data-type='copyright-page'>
   <h1>OpenStack Operations Guide</h1>
   <p class='author'>
@@ -28,6 +29,7 @@
   </p>
   </section>
 </xsl:template>
+-->
 
 <!-- Drop hard pagebreak PIs from OpenStack source -->
 <xsl:template match="processing-instruction()[contains(name(), 'hard-pagebreak')]"/>
