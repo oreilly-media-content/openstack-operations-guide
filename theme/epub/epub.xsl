@@ -9,7 +9,7 @@
 <xsl:template match="h:body[data-type='book']">
  <xsl:copy>
    <xsl:copy-of select="@*"/>
-   <xsl:copy-of select="document('theme/epub/ad.html')"/>
+   <xsl:copy-of select="document('theme/ad.html')"/>
    <xsl:copy-of select="node()"/>
  </xsl:copy>
 </xsl:template>
