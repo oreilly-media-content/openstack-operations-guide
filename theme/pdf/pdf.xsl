@@ -6,7 +6,7 @@
 
 <!-- Pull in O'Reilly copyright page info -->
 <xsl:template match="h:section[contains(@data-type, 'copyright-page')]">
-    <xsl:copy-of select="document('copyright.html')/*"/>
+    <xsl:value-of select="document('copyright.html')/*"/>
 </xsl:template>
 
 <!-- Drop hard pagebreak PIs from OpenStack source -->
