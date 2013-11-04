@@ -15,7 +15,8 @@
 	</xsl:copy>
       </wrapper>
     </xsl:variable>
-    <xsl:apply-templates select="exsl:node-set($html-composited)//h:html"/>
+    <xsl:apply-templates select="exsl:node-set($html-composited)//h:html">
+      <xsl:with-param name="html-composited" select="$html-composited"/>
   </xsl:template>
 
   <xsl:template match="@*|node()" mode="composite-html">
@@ -30,11 +31,13 @@
   </xsl:template>
   
   <xsl:template match="h:html">
+    <xsl:param name="html-composited"/>
     <xsl:call-template name="generate.mimetype"/>
     <xsl:call-template name="generate.meta-inf"/>
     <xsl:call-template name="generate.opf"/>
     <xsl:if test="$generate.ncx.toc = 1">
-      <xsl:call-template name="generate.ncx.toc"/>
+      <xsl:call-template name="generate.ncx.toc">
+	<xsl:with-param name="html-composited" select="$html-composited"/>
     </xsl:if>
     <xsl:if test="$generate.cover.html = 1">
       <xsl:call-template name="generate-cover-html"/>
@@ -45,6 +48,7 @@
     <!-- Generate an NCX file from HTMLBook source. -->
     <!-- Overridden here to generate NCX from composited HTML -->
   <xsl:template name="generate.ncx.toc">
+    <xsl:param name="html-composited"/>
     <exsl:document href="{$full.ncx.filename}" method="xml" encoding="UTF-8">
       <ncx version="2005-1">
 	<head>
