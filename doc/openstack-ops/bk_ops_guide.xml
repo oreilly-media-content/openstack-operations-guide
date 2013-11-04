@@ -15,7 +15,6 @@
 	xml:id="openstack-operations-guide">
 	<title>OpenStack Operations Guide</title>
 	<?rax pdf.url="../ops-guide.pdf"?>
-        <?orm-copyright?>
 	<titleabbrev>OpenStack Ops Guide</titleabbrev>
 	<info>
 		<author>
