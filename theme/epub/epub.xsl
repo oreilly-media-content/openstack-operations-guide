@@ -4,7 +4,7 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="h">
 
-<!-- Pull in EPUB ad -->
+<!-- Pull in EPUB ad
 <xsl:template match="h:body[contains(@data-type, 'book')]">
  <xsl:copy>
    <xsl:copy-of select="@"
@@ -12,7 +12,7 @@
    <xsl:copy-of select="node()" />
  </xsl:copy>
 </xsl:template>
-
+-->
 <!-- Pull in O'Reilly copyright page info -->
 <xsl:template match="h:section[contains(@data-type, 'copyright-page')]">
     <xsl:copy-of select="document('theme/pdf/copyright.html')"/>
