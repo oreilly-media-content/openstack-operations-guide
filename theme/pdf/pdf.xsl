@@ -6,7 +6,7 @@
                 exclude-result-prefixes="exsl h">
 
 <!-- Pull in O'Reilly copyright page file -->
-<xsl:template match="//book/title">
+<xsl:template match="processing-instruction()[normalize-space(.) = 'orm-copyright']">
   <section data-type='copyright-page'>
   <h1>OpenStack Operations Guide</h1>
   <p class='author'>
