@@ -7,7 +7,26 @@
 
 <!-- Pull in O'Reilly copyright page file -->
 <xsl:template match="//book/title">
-  <xi:include href="copyright.html"/>
+  <section data-type='copyright-page'>
+  <h1>OpenStack Operations Guide</h1>
+  <p class='author'>
+    by
+    <span class='firstname'>Tom </span>
+    <span class='surname'>Fifield</span>
+    <span>, </span>
+    <span class='firstname'>Lorin </span>
+    <span class='surname'>Hochstein</span>
+    <span>, </span>
+    <span class='firstname'>Jonathan </span>
+    <span class='surname'>Proulx</span>
+    <span>, </span>
+    <span class='firstname'>Everett </span>
+    <span class='surname'>Toews</span>
+    <span>, and </span>
+    <span class='firstname'>Joe </span>
+    <span class='surname'>Topjian</span>
+  </p>
+  </section>
 </xsl:template>
 
 <!-- Drop hard pagebreak PIs from OpenStack source -->
