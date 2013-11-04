@@ -6,7 +6,7 @@
                 exclude-result-prefixes="exsl h">
 
 <!-- Pull in O'Reilly copyright page info -->
-<xsl:template match="bookinfo">
+<xsl:template match="section[data-type='copyright-page']">
   <section data-type='copyright-page'>
   <h1>OpenStack Operations Guide</h1>
   <p class='author'>
