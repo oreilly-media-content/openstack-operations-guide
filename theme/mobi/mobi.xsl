@@ -4,9 +4,6 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="h">
 
-<!-- Drop width attributes from images -->
-<xsl:template match="h:img/@width"/>
-
 <!-- Pull in O'Reilly copyright page info -->
 <xsl:template match="h:section[contains(@data-type, 'copyright-page')]">
     <xsl:copy-of select="document('theme/pdf/copyright.html')"/>
