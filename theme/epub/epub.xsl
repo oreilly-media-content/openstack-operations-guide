@@ -17,6 +17,7 @@
     </xsl:variable>
     <xsl:apply-templates select="exsl:node-set($html-composited)//h:html">
       <xsl:with-param name="html-composited" select="$html-composited"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="@*|node()" mode="composite-html">
@@ -38,6 +39,7 @@
     <xsl:if test="$generate.ncx.toc = 1">
       <xsl:call-template name="generate.ncx.toc">
 	<xsl:with-param name="html-composited" select="$html-composited"/>
+      </xsl:call-template>
     </xsl:if>
     <xsl:if test="$generate.cover.html = 1">
       <xsl:call-template name="generate-cover-html"/>
