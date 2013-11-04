@@ -71,7 +71,7 @@
 	      <navPoint>
 		<xsl:attribute name="id">
 		  <!-- Use OPF ids in NCX as well -->
-		  <xsl:apply-templates select="/*" mode="opf.id"/>
+		  <xsl:apply-templates select="exsl:node-set($html-composited)//h:html" mode="opf.id"/>
 		</xsl:attribute>
 		<navLabel>
 		  <text>
