@@ -6,7 +6,7 @@
                 exclude-result-prefixes="exsl h">
 
 <!-- Pull in O'Reilly copyright page file -->
-<xsl:template match="book/title[1]">
+<xsl:template match="//book/title">
   <xi:include href="copyright.html"/>
 </xsl:template>
 
