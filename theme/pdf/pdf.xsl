@@ -1,13 +1,12 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:h="http://www.w3.org/1999/xhtml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="exsl h">
 
 <!-- Pull in O'Reilly copyright page info -->
 <xsl:template match="h:section[contains(@data-type, 'copyright-page')]">
-   <xi:include href="copyright.html"/>
+   <xsl:include href="copyright.html"/>
 </xsl:template>
 
 <!-- Drop hard pagebreak PIs from OpenStack source -->
