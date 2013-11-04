@@ -9,6 +9,14 @@
     <xsl:copy-of select="document('theme/pdf/copyright.html')"/>
 </xsl:template>
 
+<!-- Pull in author name from OpenStack source -->
+<xsl:template match="h:section[contains(@data-type, 'titlepage')]/h:h2">
+ <h2>
+   <xsl:attribute name="data-type">author</xsl:attribute>
+   <xsl:copy-of select="document('theme/pdf/copyright.html')//h:p[@class='author']"/>
+ </h2>
+</xsl:template>   
+
 <!-- Drop hard pagebreak PIs from OpenStack source -->
 <xsl:template match="processing-instruction()[contains(name(), 'hard-pagebreak')]"/>
 
