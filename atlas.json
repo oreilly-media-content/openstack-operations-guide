@@ -7,7 +7,11 @@
       "version": "web",
       "toc": true
     },
-    "epub": {},
+    "epub": {
+      "index": true,
+      "toc": true,
+      "epubcheck": true
+    },
     "mobi": {},
     "html": {}
   },
