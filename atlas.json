@@ -5,15 +5,22 @@
   "formats": {
     "pdf": {
       "version": "web",
-      "toc": true
+      "toc": true,
+      "index": false
     },
     "epub": {
       "index": true,
       "toc": true,
       "epubcheck": true
     },
-    "mobi": {},
-    "html": {}
+    "mobi": {
+      "index": false,
+      "toc": false
+    },
+    "html": {
+      "index": false,
+      "toc": false
+    }
   },
   "theme": "oreillymedia/animal_theme",
   "title": "openstack operations guide"
