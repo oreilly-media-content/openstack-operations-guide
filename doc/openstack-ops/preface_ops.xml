@@ -11,7 +11,7 @@
 <preface xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
-    xml:id="section_yk2_jpr_lj">
+    xml:id="openstack-ops_preface">
     <?dbhtml stop-chunking?>
     <title>Preface</title>
     <para>OpenStack is an open source platform that lets you build an
@@ -19,143 +19,275 @@
         hardware.</para>
     <section xml:id="introduction-to-openstack">
         <title>Introduction to OpenStack</title>
-        <para>OpenStack believes in open source, open design, open development,
-            all in an open community so anyone can participate. The long-term
-            vision for OpenStack is to produce a ubiquitous open source cloud
-            computing platform that meets the needs of public and private cloud
-            providers regardless of size. OpenStack services control large pools
-            of compute, storage, and networking resources throughout a data
-            center. </para>
-        <para>Each service provides a REST API so that all these resources can
-            be managed through a dashboard that gives administrators control
-            while empowering users to provision resources through a web
-            interface, through a command-line client, or through software
-            development kits that support the API. Many OpenStack APIs are
-            extensible, meaning you can keep compatibility with a core set of
-            calls while providing access to more resources and innovating
-            through API extensions. The OpenStack project is a global
-            collaboration of developers and cloud computing technologists
-            producing the open standard cloud computing platform for both public
-            and private clouds. The project aims to deliver solutions for all
-            types of clouds by being simple to implement, massively scalable,
-            and feature-rich. The technology consists of a series of
-            interrelated projects delivering various components for a cloud
-            infrastructure solution.</para>
-        <para>Okay, you say, OpenStack is open source cloud. Are there others?
-            Yes, Eucalyptus offers an open source version of their private cloud
-            offering that provides services compatible with Amazon Web Services
-            (AWS) APIs such as EC2 and S3. With Ubuntu Server 11.10 release,
-            OpenStack became supported by default rather than Eucalyptus for
-            Ubuntu Server releases. The product targets private cloud deployers
-            who want to maintain compatibility with Amazon Web Services by
-            partnering with Amazon. Apache CloudStack is another example of an
-            open source cloud project, but it only runs on Ubuntu 10.04. It
-            offers computing as a core service, with connections to storage
-            services. Citrix purchased the project technology for $200 million
-            in 2011 when buying cloud.com, then released it to Apache in April
-            2012. The API compatibility for CloudStack centers on AWS
-            APIs.</para>
+        <para>OpenStack believes in open source, open design, open development, all in an open
+            community encouraging participation by anyone. The long-term vision for OpenStack
+            is to produce a ubiquitous open source cloud computing platform that meets the needs of public and
+            private cloud providers regardless of size. OpenStack services control large pools of
+            compute, storage, and networking resources throughout a data center.</para>
+        <para>The technology behind OpenStack consists of a series of interrelated projects
+            delivering various components for a cloud infrastructure solution.
+            Each service provides an open API so that all of these resources can be managed through a
+            dashboard that gives administrators control while empowering users to provision
+            resources through a web interface, a command-line client, or software
+            development kits that support the API. Many OpenStack APIs are extensible, meaning you
+            can keep compatibility with a core set of calls while providing access to more resources
+            and innovating through API extensions. The OpenStack project is a global collaboration
+            of developers and cloud computing technologists producing the open standard cloud
+            computing platform for both public and private clouds. By focusing on ease of
+            implementation, massive scalability, a variety of rich features and tremendous
+            extensibility, the project aims to deliver a practical and reliable cloud solution for
+            all types of organisations.</para>
+        <para>As an open source project, one of the unique aspects about OpenStack is that there are
+            many different levels you can begin to engage with it &mdash; you don't have to do everything
+            yourself.</para>
+        <para>You could ask, "do I even need to build a cloud?". If you just want to start using a
+            service like Amazon Web Services Elastic Compute Cloud (EC2) or Simple Storage Solution
+            (S3), you can today swipe your credit card at eNovance, HP, Rackspace and other
+            organisations to start using their public OpenStack clouds.</para>
+        <para>However, the enticing part of OpenStack might be to build your own private
+            cloud, and there are several ways to accomplish this goal. Perhaps the simplest of all is an
+            appliance-style solution. You purchase an appliance, un-box it, plug in the power and the
+            network and watch it transform into an OpenStack cloud with minimal additional
+            configuration. Few, if any, other open source cloud products that have such 'turn key' options.</para>
+        <para>However, hardware choice is important for many applications, so if that applies to you,
+            consider that there are several software distributions available that you can run on
+            servers, storage and network products of your choosing. Canonical (where OpenStack replaced Eucalyptus as
+            the default cloud option in 2011), Red Hat and SUSE offer enterprise OpenStack
+            solutions and support. You may also want to take a look also at some of the
+            specialized distributions, such as those from Rackspace, Piston, SwiftStack or
+            Cloudscaling. Also, a hat tip to Apache CloudStack, which Citrix donated to the Apache
+            Foundation after its US $200 million purchase of Cloud.com. While not currently packaged
+            in any distributions, like Eucalyptus it is an example of an alternative private
+            cloud software developed in an open source-like manner.</para>
+        <para>Alternately, if you want someone to help guide you through the decisions from the
+            underlying hardware up to your applications, perhaps adding in a few features or integrating
+            components along the way, consider contacting one of the system integrators with
+            OpenStack experience like Mirantis or Metacloud.</para>
+        <para>If your preference is to build your own OpenStack expertise internally, a good way to
+            kick start that might be to attend or arrange a training session. The OpenStack
+            Foundation recently launched a <link
+xlink:href="http://www.openstack.org/marketplace/training">Training Marketplace
+            (http://www.openstack.org/marketplace/training)</link>, where you can look for nearby events.
+            Also the OpenStack community is <link xlink:href="https://wiki.openstack.org/wiki/Training-manuals">working to produce
+            (https://wiki.openstack.org/wiki/Training-manuals)</link>open source training materials.</para>
+        <para>However, this guide has a different audience &mdash; those seeking to derive the most
+            flexibility from the OpenStack framework; conducting 'Do-It-Yourself' solutions, if you
+            will.</para>
         <para>OpenStack is designed for scalability, so you can easily add new
-            compute and storage resources to grow your cloud over time.
-            Organizations such as HP and Rackspace have built massive public
-            clouds on top of OpenStack. OpenStack is more than a software
-            package that you run as-is. It lets you integrate a number of
-            different technologies to construct a cloud. This approach provides
-            great flexibility, but the number of options might be bewildering at
-            first.</para>
+        compute, network and storage resources to grow your cloud over time. In addition to several
+        massive OpenStack public clouds, a considerable number of other organisations (such as
+        Paypal, Intel and Comcast) have built large-scale private clouds. OpenStack offers much
+        more than a typical software package because it lets you integrate a number of different
+        technologies to construct a cloud. This approach provides great flexibility, but the
+        number of options might be bewildering at first.</para>
     </section>
-    <section xml:id="who-this-book-is-for"><title>Who This Book Is For</title>
-        <para>This guide assumes that you are familiar with the Ubuntu
-            distribution of Linux, SQL databases, and virtualization. You
-            must be comfortable administering and configuring multiple
-            Linux machines for networking. You must install and maintain a
-            MySQL database, and occasionally run SQL queries against it.
-            </para>
-        <para> One of the most complex aspects of an OpenStack cloud is the
+    <section xml:id="who-this-book-is-for">
+        <title>Who This Book Is For</title>
+        <para>This guide assumes that you are familiar with a Linux
+            distribution supporting OpenStack, SQL databases, and virtualization.
+             You must be comfortable administering and configuring multiple Linux machines
+            for networking. You must install and maintain a MySQL database, and
+            occasionally run SQL queries against it.</para>
+        <para>One of the most complex aspects of an OpenStack cloud is the
             networking configuration. You should be familiar with concepts such
             as DHCP, Linux bridges, VLANs, and iptables. You must also have
             access to a network hardware expert who can configure the switches
             and routers required in your OpenStack cloud.</para>
-        <para>This book is for those of you starting to run OpenStack
-            clouds as well as those of you who were handed a running one and
-            want to keep it running well. Perhaps you're on a devops team,
-            perhaps you are a system administrator starting to dabble in the
-            cloud, or maybe you want to get on that OpenStack cloud team at your
-            company. This book is for all of you.</para></section>
+        <para>This book is for those of you starting to run OpenStack clouds as
+            well as those of you who were handed a running one and want to keep
+            it running well. Perhaps you're on a devops team, perhaps you are a
+            system administrator starting to dabble in the cloud, or maybe you
+            want to get on that OpenStack cloud team at your company. This book
+            is for all of you.</para>
+        <para>There are other books on the OpenStack documentation web site at
+                <link xlink:href="http://docs.openstack.org"
+                >docs.openstack.org</link> that can help you get the job
+            done.</para>
+        <variablelist>
+            <title>OpenStack Guides</title>
+            <varlistentry>
+                <term>OpenStack Installation Guides</term>
+                <listitem>
+                    <para>Describe a manual install process, as in, by hand, no
+                        automation, for multiple distributions based on packaging
+                        system:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><link
+                                    xlink:href="http://docs.openstack.org/havana/install-guide/install/apt-debian/content/"
+                                    >Installation Guide for Debian 7.0</link>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para><link
+                                    xlink:href="http://docs.openstack.org/havana/install-guide/install/zypper/content/"
+                                    >Installation Guide for openSUSE and SUSE
+                                    Linux Enterprise Server</link>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para><link
+                                    xlink:href="http://docs.openstack.org/havana/install-guide/install/yum/content/"
+                                    >Installation Guide for Red Hat Enterprise
+                                    Linux, CentOS, and Fedora</link></para>
+                        </listitem>
+                        <listitem>
+                            <para><link
+                                    xlink:href="http://docs.openstack.org/havana/install-guide/install/apt/content/"
+                                    >Installation Guide for Ubuntu 12.04 (LTS)
+                                    Server</link></para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link
+                        xlink:href="http://docs.openstack.org/havana/config-reference/content/"
+                        >OpenStack Configuration Reference</link>
+                </term>
+                <listitem>
+                    <para>Contains a reference listing of all configuration
+                        options for core and integrated OpenStack services by
+                        release version.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link
+                        xlink:href="http://docs.openstack.org/admin-guide-cloud/content/"
+                        >OpenStack Cloud Administrator Guide</link></term>
+                <listitem>
+                    <para>Contains how-to information for managing an OpenStack
+                        cloud as needed for your use cases, such as storage,
+                        computing, or software-defined-networking.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link
+                        xlink:href="http://docs.openstack.org/high-availability-guide/content/index.html"
+                        >OpenStack High Availability Guide</link>
+                </term>
+                <listitem>
+                    <para>Describes potential strategies for making your
+                        OpenStack services and related controllers and data
+                        stores highly available.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link xlink:href="http://docs.openstack.org/sec/"
+                        >OpenStack Security Guide</link></term>
+                <listitem>
+                    <para>Provide best practices and conceptual information
+                        about securing an OpenStack cloud.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link xlink:href="http://docs.openstack.org/image-guide/content/">Virtual Machine Image Guide</link></term>
+                <listitem>
+                    <para>Shows you how to obtain, create, and modify virtual
+                        machine images that are compatible with
+                        OpenStack.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link xlink:href="http://docs.openstack.org/user-guide/content/">OpenStack End User Guide</link></term>
+                <listitem>
+                    <para>Shows OpenStack end users how to create and manage
+                        resources in an OpenStack cloud with the OpenStack
+                        dashboard and OpenStack client commands.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link xlink:href="http://docs.openstack.org/user-guide-admin/content/">OpenStack Admin User Guide</link></term>
+                <listitem>
+                    <para>Shows OpenStack administrators how to create and
+                        manage resources in an OpenStack cloud with the
+                        OpenStack dashboard and OpenStack client
+                        commands.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link xlink:href="http://docs.openstack.org/api/quick-start/content/">OpenStack API Quick Start</link></term>
+                <listitem>
+                    <para>A brief overview of how to send REST API requests to
+                        endpoints for OpenStack services.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
     <section xml:id="how-this-book-is-organized">
         <title>How This Book Is Organized</title>
         <para>This book is organized in two parts, the architecture decisions
             for designing OpenStack clouds and the repeated operations for
             running OpenStack clouds.</para>
-        <para>Chapter 1: Provisioning and Deployment: While this book doesn't
+        <para><xref linkend="example_architecture"/>: Because of all the decisions the
+            other chapters discuss, this chapter describes the decisions made
+            for this particular book and much of the justification for the
+            example architecture.</para>
+        <para><xref linkend="section_arch_provision"/>: While this book doesn't
             describe installation, we do recommend automation for deployment and
             configuration, discussed in this chapter.</para>
-        <para>Chapter 2: Cloud Controller Design: The cloud controller is an
+        <para><xref linkend="cloud_controller_design"/>: The cloud controller is an
             invention for the sake of consolidating and describing which
             services run on which nodes. The chapter discusses hardware and
             network considerations as well as how to design the cloud controller
             for performance and separation of services.</para>
-        <para>Chapter 3: Scaling: This chapter discusses the growth of your
+        <para><xref linkend="scaling"/>: This chapter discusses the growth of your
             cloud resources through scaling and segregation
             considerations.</para>
-        <para>Chapter 4: Compute Nodes: This chapter describes the compute
+        <para><xref linkend="compute_nodes"/>: This chapter describes the compute
             nodes, which are dedicated to run virtual machines. Some hardware
             choices come into play here as well as logging and networking
             descriptions.</para>
-        <para>Chapter 5: Storage Decisions: Along with other architecture
+        <para><xref linkend="storage_decision"/>: Along with other architecture
             decisions, storage concepts within OpenStack take a lot of
             consideration, and this chapter lays out the choices for you.</para>
-        <para>Chapter 6: Network Design: Your OpenStack cloud networking needs
+        <para><xref linkend="network_design"/>: Your OpenStack cloud networking needs
             to fit into your existing networks while also enabling the best
             design for your users and administrators, and this chapter gives you
             in-depth information about networking decisions.</para>
-        <para>Chapter 7:  Example Architecture: Because of all the decisions the
-            previous chapters discuss, this chapter describes the decisions made
-            for this particular book and much of the justification for the
-            example architecture.</para>
-        <para>Chapter 8: Lay of the Land: This chapter is written to let you get
+        <para><xref linkend="lay_of_the_land"/>: This chapter is written to let you get
             your hands wrapped around your OpenStack cloud through command line
             tools and understanding what is already set up in your cloud.</para>
-        <para>Chapter 9: Managing Projects and Users: This chapter walks through
+        <para><xref linkend="projects_users"/>: This chapter walks through
             those user-enabling processes that all admins must face to manage
             users, give them quotas to parcel out resources, and so on.</para>
-        <para>Chapter 10: User-facing Operations: This chapter moves along to
+        <para><xref linkend="user_facing_operations"/>: This chapter moves along to
             show you how to use OpenStack cloud resources and train your users
-            as well. </para>
-        <para>Chapter 11: Maintenance, Failures, and Debugging: This chapter
+            as well.</para>
+        <para><xref linkend="maintenance"/>: This chapter
             goes into the common failures the authors have seen while running
             clouds in production, including troubleshooting.</para>
-        <para>Chapter 12: Network Troubleshooting: Because network
+        <para><xref linkend="network_troubleshooting"/>: Because network
             troubleshooting is especially difficult with virtual resources, this
             chapter is chock-full of helpful tips and tricks to tracing network
             traffic, finding the root cause of networking failures, and
             debugging related services like DHCP and DNS.</para>
-        <para>Chapter 13: Logging and Monitoring: This chapter shows you where
+        <para><xref linkend="logging_monitoring"/>: This chapter shows you where
             OpenStack places logs and how to best to read and manage logs for
-            monitoring purposes. </para>
-        <para>Chapter 14: Backup and Recovery: This chapter describes what you
+            monitoring purposes.</para>
+        <para><xref linkend="backup_and_recovery"/>: This chapter describes what you
             need to back up within OpenStack as well as best practices for
-            recovering backups. </para>
-        <para>Chapter 15: Customize: When you need to get a specialized feature
+            recovering backups.</para>
+        <para><xref linkend="customize"/>: When you need to get a specialized feature
             into OpenStack, this chapter describes how to use DevStack to write
             custom middleware or a custom scheduler to rebalance your
             resources.</para>
-        <para>Chapter 16: Upstream OpenStack: Because OpenStack is so, well,
+        <para><xref linkend="upstream_openstack"/>: Because OpenStack is so, well,
             open, this chapter is dedicated to helping you navigate the
             community and find out where you can help and where you can get
             help.</para>
-        <para>Chapter 17: Advanced Configuration: Much of OpenStack is
+        <para><xref linkend="advanced_configuration"/>: Much of OpenStack is
             driver-oriented, where you can plug in different solutions to the
             base set of services. This chapter describes some advanced
             configuration topics.</para>
-        <para>Appendix A: Use Cases: You can read a small selection of use cases
+        <para><xref linkend="use-cases"/>: You can read a small selection of use cases
             from the OpenStack community with some technical detail and further
             resources.</para>
-        <para>Appendix B: Tales From the Cryp^H^H^H^H Cloud: These are shared
+        <para><xref linkend="app_crypt"/>: These are shared
             legendary tales of image disappearances, VM massacres, and crazy
             troubleshooting techniques to share those hard-learned lessons and
             wisdom.</para>
-        <para>Appendix C: Resources: So many OpenStack resources are available
+        <para><xref linkend="recommended-reading"/>: So many OpenStack resources are available
             online due to the fast-moving nature of the project, but there are
             also listed resources the authors found helpful while learning
             themselves.</para>
@@ -179,7 +311,7 @@
                         non-trivial OpenStack cloud. After you read this guide,
                         you'll know which questions to ask and how to organize
                         your compute, networking, storage resources, and the
-                        associated software packages. </para>
+                        associated software packages.</para>
                 </listitem>
                 <listitem>
                     <para>Perform the day-to-day tasks required to administer a
@@ -191,7 +323,7 @@
             the <link xlink:href="http://www.booksprints.net">Book Sprint
                 site</link>. Your authors cobbled this book together in five
             days during February 2013, fueled by caffeine and the best take-out
-            food that Austin, Texas could offer. </para>
+            food that Austin, Texas could offer.</para>
         <para>On the first day we filled white boards with colorful sticky notes
             to start to shape this nebulous book about how to architect and
             operate clouds. <informalfigure>
@@ -310,7 +442,7 @@
                 <literal>ops-guide</literal> tag to indicate that the
             bug is in this guide. You can assign the bug to yourself
             if you know how to fix it. Also, a member of the OpenStack
-            doc-core team can triage the doc bug. </para>
+            doc-core team can triage the doc bug.</para>
     </section>
 
 </preface>

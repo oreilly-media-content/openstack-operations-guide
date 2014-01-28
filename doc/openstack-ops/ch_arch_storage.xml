@@ -10,10 +10,9 @@
 <imagedata fileref="figures/Check_mark_23x20_02.svg"
 format="SVG" scale="60"/>
 </imageobject>
-</inlinemediaobject>'>        
-     
+</inlinemediaobject>'>
 ]>
-<chapter role="add_padding" xmlns="http://docbook.org/ns/docbook"
+<chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
     xml:id="storage_decision">
@@ -23,11 +22,64 @@ format="SVG" scale="60"/>
         the differing types can cause confusion to even experienced
         cloud engineers. This section focuses on persistent storage
         options you can configure with your cloud.</para>
+    <section xml:id="ephemeral_storage">
+        <title>Ephemeral Storage</title>
+        <para>If you only deploy the OpenStack Compute Service (nova),
+            your users do not have access to any form of persistent
+            storage by default. The disks associated with VMs are
+            "ephemeral", meaning that (from the user's point of view)
+            they effectively disappear when a virtual machine is
+            terminated. You must identify what type of persistent
+            storage you want to support for your users.</para>
+        <para>Today, OpenStack clouds explicitly support two types of
+            persistent storage: <emphasis>object storage</emphasis>
+            and <emphasis>block storage</emphasis>.</para></section>
+    <section xml:id="object_storage">
+        <title>Object Storage</title>
+        <para>With object storage, users access binary objects
+            through a REST API. You may be familiar with Amazon
+            S3, which is a well-known example of an object storage
+            system. If your intended users need to archive or
+            manage large datasets, you want to provide them with
+            object storage. In addition, OpenStack can store your
+            virtual machine (VM) images inside of an object
+            storage system, as an alternative to storing the
+            images on a file system.</para>
+    </section>
+    <section xml:id="block_storage">
+        <title>Block Storage</title>
+        <para>Block storage (sometimes referred to as volume
+            storage) exposes a block device to the user. Users
+            interact with block storage by attaching volumes to
+            their running VM instances.</para>
+        <para>These volumes are persistent: they can be detached
+            from one instance and re-attached to another, and the
+            data remains intact. Block storage is implemented in
+            OpenStack by the OpenStack Block Storage (Cinder)
+            project, which supports multiple back-ends in the form
+            of drivers. Your choice of a storage back-end must be
+            supported by a Block Storage driver.</para>
+        <para>Most block storage drivers allow the instance to
+            have direct access to the underlying storage
+            hardware's block device. This helps increase the
+            overall read/write IO.</para>
+        <para>Experimental support for utilizing files as volumes
+            began in the Folsom release. This initially started as
+            a reference driver for using NFS with Cinder. By
+            Grizzly's release, this has expanded into a full NFS
+            driver as well as a GlusterFS driver.</para>
+        <para>These drivers work a little differently than a
+            traditional "block" storage driver. On an NFS or
+            GlusterFS file system, a single file is created and
+            then mapped as a "virtual" volume into the instance.
+            This mapping/translation is similar to how OpenStack
+            utilizes QEMU's file-based virtual machines stored in
+            <code>/var/lib/nova/instances</code>.</para>
+    </section>
     <section xml:id="storage_concepts">
         <title>OpenStack Storage Concepts</title>
         <table xml:id="openstack_storage" rules="all">
             <caption>OpenStack Storage</caption>
-
             <thead>
                 <tr>
                     <th/>
@@ -96,59 +148,6 @@ format="SVG" scale="60"/>
                 </tr>
             </tbody>
         </table>
-        <para>If you only deploy the OpenStack Compute Service (nova),
-            your users do not have access to any form of persistent
-            storage by default. The disks associated with VMs are
-            "ephemeral", meaning that (from the user's point of view)
-            they effectively disappear when a virtual machine is
-            terminated. You must identify what type of persistent
-            storage you want to support for your users.</para>
-        <para>Today, OpenStack clouds explicitly support two types of
-            persistent storage: <emphasis>object storage</emphasis>
-            and <emphasis>block storage</emphasis>.</para>
-        <section xml:id="object_storage">
-            <title>Object Storage</title>
-            <para>With object storage, users access binary objects
-                through a REST API. You may be familiar with Amazon
-                S3, which is a well-known example of an object storage
-                system. If your intended users need to archive or
-                manage large datasets, you want to provide them with
-                object storage. In addition, OpenStack can store your
-                virtual machine (VM) images inside of an object
-                storage system, as an alternative to storing the
-                images on a file system.</para>
-        </section>
-      
-        <section xml:id="block_storage">
-            <title>Block Storage</title>
-            <para>Block storage (sometimes referred to as volume
-                storage) exposes a block device to the user. Users
-                interact with block storage by attaching volumes to
-                their running VM instances. </para>
-            <para>These volumes are persistent: they can be detached
-                from one instance and re-attached to another, and the
-                data remains intact. Block storage is implemented in
-                OpenStack by the OpenStack Block Storage (Cinder)
-                project, which supports multiple back-ends in the form
-                of drivers. Your choice of a storage back-end must be
-                supported by a Block Storage driver.</para>
-            <para>Most block storage drivers allow the instance to
-                have direct access to the underlying storage
-                hardware's block device. This helps increase the
-                overall read/write IO.</para>
-            <para>Experimental support for utilizing files as volumes
-                began in the Folsom release. This initially started as
-                a reference driver for using NFS with Cinder. By
-                Grizzly's release, this has expanded into a full NFS
-                driver as well as a GlusterFS driver.</para>
-            <para>These drivers work a little differently than a
-                traditional "block" storage driver. On an NFS or
-                GlusterFS file system, a single file is created and
-                then mapped as a "virtual" volume into the instance.
-                This mapping/translation is similar to how OpenStack
-                utilizes QEMU's file-based virtual machines stored in
-                    <code>/var/lib/nova/instances</code>.</para>
-        </section>
         <section xml:id="file_level_storage">
             <title>File-level Storage</title>
             <para>With file-level storage, users access stored data
@@ -157,7 +156,7 @@ format="SVG" scale="60"/>
                 solution before, have encountered this form of
                 networked storage. In the Unix world, the most common
                 form of this is NFS. In the Windows world, the most
-                common form is called CIFS (previously, SMB). </para>
+                common form is called CIFS (previously, SMB).</para>
             <para>OpenStack clouds do not present file-level storage
                 to end users. However, it is important to consider
                 file-level storage for storing instances under
@@ -170,9 +169,15 @@ format="SVG" scale="60"/>
     <?hard-pagebreak?>
     <section xml:id="storage_backends">
         <title>Choosing Storage Back-ends</title>
-        <para>In general, when you select <glossterm>storage
+        <para>Users will indicate different needs for their cloud use cases.
+            Some may need fast access to many objects that do not change often,
+            or they want to set a Time To Live (TTL) value on a file. Others may only
+            access storage that is mounted with the file system itself, but want
+            it to be replicated instantly when starting a new instance. For
+            other systems, ephemeral storage that is released when a VM attached
+            to it is shut down. When you select <glossterm>storage
                 back-end</glossterm>s, ask the following
-            questions:</para>
+            questions on behalf of your users:</para>
         <itemizedlist role="compact">
             <listitem>
                 <para>Do my users need block storage?</para>
@@ -210,15 +215,15 @@ format="SVG" scale="60"/>
         </itemizedlist>
         <para>To deploy your storage by using entirely commodity
             hardware, you can use a number of open-source packages, as
-            shown in the following table: </para>
-        <informaltable rules="all" role="keep-together">
+            shown in the following table:</para>
+        <table xml:id="storage_solutions" rules="all">
+            <caption>Persistent file-based storage support</caption>
             <thead>
                 <tr>
                     <th> </th>
                     <th>Object</th>
                     <th>Block</th>
                     <th>File-level* (live migration support)</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -265,7 +270,7 @@ format="SVG" scale="60"/>
                     <td><para> </para></td>
                 </tr>
             </tbody>
-        </informaltable>
+        </table>
         <para>* This list of open-source file-level shared storage
             solutions is not exhaustive, other open source solutions
             exist (MooseFS). Your organization may already have
@@ -294,7 +299,7 @@ format="SVG" scale="60"/>
                 xlink:title="OpenStack wiki"
                 xlink:href="https://wiki.openstack.org/wiki/CinderSupportMatrix"
                 >OpenStack wiki</link>
-            (https://wiki.openstack.org/wiki/CinderSupportMatrix). </para>
+            (https://wiki.openstack.org/wiki/CinderSupportMatrix).</para>
         <para>Also, you need to decide whether you want to support
             object storage in your cloud. The two common use cases for
             providing object storage in a compute cloud are:</para>
@@ -310,10 +315,10 @@ format="SVG" scale="60"/>
         </itemizedlist>
         <section xml:id="commodity_storage_backends">
             <title>Commodity Storage Back-end Technologies</title>
-            <para>This section provides a high-level overview of the
-                differences among the different commodity storage
-                back-end technologies. </para>
-
+            <para>This section provides a high-level overview of the differences
+                among the different commodity storage back-end technologies.
+                Depending on your cloud user's needs, you can implement one or
+                many of these technologies in different combinations.</para>
             <itemizedlist role="compact">
                 <listitem>
                     <para><emphasis role="bold">OpenStack Object
@@ -330,7 +335,7 @@ format="SVG" scale="60"/>
                         Dashboard interface), and better support for
                         multiple data center deployment through
                         support of asynchronous eventual consistency
-                        replication. </para>
+                        replication.</para>
                     <para>Therefore, if you eventually plan on
                         distributing your storage cluster across
                         multiple data centers, if you need unified
@@ -347,7 +352,7 @@ format="SVG" scale="60"/>
                         across commodity storage nodes. Ceph was
                         originally developed by one of the founders of
                         DreamHost and is currently used in production
-                        there. </para>
+                        there.</para>
                     <para>Ceph was designed to expose different types
                         of storage interfaces to the end-user: it
                         supports object storage, block storage, and
@@ -358,13 +363,13 @@ format="SVG" scale="60"/>
                         back-end for Cinder block storage, as well as
                         back-end storage for Glance images. Ceph
                         supports "thin provisioning", implemented
-                        using copy-on-write. </para>
+                        using copy-on-write.</para>
                     <para>This can be useful when booting from volume
                         because a new volume can be provisioned very
                         quickly. Ceph also supports keystone-based
                         authentication (as of version 0.56), so it can
                         be a seamless swap in for the default
-                        OpenStack Swift implementation. </para>
+                        OpenStack Swift implementation.</para>
                     <para>Ceph's advantages are that it gives the
                         administrator more fine-grained control over
                         data distribution and replication strategies,
@@ -377,7 +382,7 @@ format="SVG" scale="60"/>
                             xlink:href="http://ceph.com/docs/master/faq/"
                             >not yet recommended</link>
                         (http://ceph.com/docs/master/faq/) for use in
-                        production deployment by the Ceph project. </para>
+                        production deployment by the Ceph project.</para>
                     <para>If you wish to manage your object and block
                         storage within a single system, or if you wish
                         to support fast boot-from-volume, you should
@@ -391,7 +396,7 @@ format="SVG" scale="60"/>
                         storage into one unified file and object
                         storage solution, which is called Gluster UFO.
                         Gluster UFO uses a customizes version of Swift
-                        that uses Gluster as the back-end. </para>
+                        that uses Gluster as the back-end.</para>
                     <para>The main advantage of using Gluster UFO over
                         regular Swift is if you also want to support a
                         distributed file system, either to support
@@ -400,13 +405,15 @@ format="SVG" scale="60"/>
                         you wish to manage your object and file
                         storage within a single system, you should
                         consider Gluster UFO.</para>
+                </listitem>
+                <listitem>
                     <para><emphasis role="bold">LVM</emphasis>. The
                         Logical Volume Manager, a Linux-based system
                         that provides an abstraction layer on top of
                         physical disks to expose logical volumes to
                         the operating system. The LVM (Logical Volume
                         Manager) back-end implements block storage as
-                        LVM logical partitions. </para>
+                        LVM logical partitions.</para>
                     <para>On each host that will house block storage,
                         an administrator must initially create a
                         volume group dedicated to Block Storage
@@ -422,16 +429,18 @@ format="SVG" scale="60"/>
                             against a failure of the entire
                             host.</para>
                     </note>
-                    <para>The Solaris iSCSI driver for OpenStack Block
-                        Storage implements blocks as <emphasis
-                            role="bold">ZFS</emphasis> entities. ZFS
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">ZFS</emphasis>. The
+                        Solaris iSCSI driver for OpenStack Block
+                        Storage implements blocks as ZFS entities. ZFS
                         is a file system that also has functionality
                         of a volume manager. This is unlike on a Linux
                         system, where there is a separation of volume
                         manager (LVM) and file system (such as, ext3,
                         ext4, xfs, btrfs). ZFS has a number of
                         advantages over ext4, including improved data
-                        integrity checking. </para>
+                        integrity checking.</para>
                     <para>The ZFS back-end for OpenStack Block Storage
                         only supports Solaris-based systems such as
                         Illumos. While there is a Linux port of ZFS,
@@ -442,7 +451,7 @@ format="SVG" scale="60"/>
                         hosts on its own, you need to add a
                         replication solution on top of ZFS if your
                         cloud needs to be able to handle storage node
-                        failures. </para>
+                        failures.</para>
                     <para>We don't recommend ZFS unless you have
                         previous experience with deploying it, since
                         the ZFS back-end for Block Storage requires a
@@ -522,7 +531,7 @@ format="SVG" scale="60"/>
             traffic, which is predominantly "Do you have the
             object?"/"Yes I have the object!." Of course, if the
             answer to the aforementioned question is negative or times
-            out, replication of the object begins. </para>
+            out, replication of the object begins.</para>
         <para>Consider the scenario where an entire server fails, and
             24 TB of data needs to be transferred "immediately" to
             remain at three copies - this can put significant load on
@@ -536,13 +545,21 @@ format="SVG" scale="60"/>
             recommendation that your private network is of
             significantly higher bandwidth than your public need be.
             Oh, and OpenStack Object Storage communicates internally
-            with unencrypted, unauthenticated rsync for performance -
+            with unencrypted, unauthenticated rsync for performance &mdash;
             you do want the private network to be private.</para>
         <para>The remaining point on bandwidth is the public facing
-            portion. swift-proxy is stateless, which means that you
+            portion. The swift-proxy service is stateless, which means that you
             can easily add more and use http load-balancing methods to
-            share bandwidth and availability between them. </para>
+            share bandwidth and availability between them.</para>
         <para>More proxies means more bandwidth, if your storage can
             keep up.</para>
+    </section>
+    <section xml:id="storagedecisions_conclusion">
+        <title>Conclusion</title>
+        <para>Hopefully you now have some considerations in mind and questions
+            to ask your future cloud users about their storage use cases. As you
+        can see, your storage decisions will also influence your network design
+        for performance and security needs. Continue with us to make more
+        informed decisions about your OpenStack cloud design.</para>
     </section>
 </chapter>

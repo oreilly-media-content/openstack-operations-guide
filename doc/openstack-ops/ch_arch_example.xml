@@ -13,17 +13,27 @@
     xml:id="example_architecture">
     <?dbhtml stop-chunking?>
     <title>Example Architecture</title>
-    <para>Because OpenStack is highly configurable, with many
-        different <glossterm>back-ends</glossterm> and network
-        configuration options, it is difficult to write documentation
-        that covers all possible OpenStack deployments. Therefore,
-        this guide defines an <emphasis>example
-            architecture</emphasis> to simplify the task of
-        documenting, as well as to scope this guide so that it is
-        focused on a configuration where the authors have direct
-        deployment experience.</para>
+    <para>Because OpenStack is highly configurable, with many different
+            <glossterm>back-ends</glossterm> and network configuration options,
+        it is difficult to write documentation that covers all possible
+        OpenStack deployments. Therefore, this guide defines an
+            <emphasis>example architecture</emphasis> to simplify the task of
+        documenting, as well as to scope this guide. You can find additional
+        architectures in the <link linkend="use-cases">Use Cases</link>
+        appendix, the <link xlink:href="http://docs.openstack.org/">OpenStack
+            Installation Guides</link>, or the <link
+            xlink:href="http://openstack.org/user-stories/">OpenStack User
+            Stories page</link>.</para>
     <section xml:id="overview">
         <title>Overview</title>
+        <para>The simplest architecture you can build upon for Compute has a
+            single cloud controller and multiple compute nodes. The simplest
+            architecture for Object Storage has five nodes: one for identifying
+            users and proxying requests to the API, then four for storage itself
+            to provide enough replication for eventual consistency. This example
+            architecture does not dictate a particular number of nodes, but
+            shows the thinking and considerations that went into choosing this
+            architecture including the features offered.</para>
         <informaltable rules="all">
             <col width="40%"/>
             <col width="60%"/>
@@ -224,11 +234,11 @@
             operators. Additionally, the dashboard's use of Django
             makes it a flexible framework for extension.</para>
 
-        <section xml:id="quantum">
+        <section xml:id="neutron">
             <title>Why Not Use the OpenStack Network Service
-                (quantum)?</title>
+                (neutron)?</title>
             <para>We do not discuss the OpenStack Network Service
-                (quantum) in this guide, because the authors of this
+                (neutron) in this guide, because the authors of this
                 guide only have production deployment experience using
                     <code>nova-network</code>. Additionally, it does
                 not yet support multi-host networking.</para>
@@ -311,7 +321,7 @@
             <mediaobject>
                 <imageobject>
                     <imagedata width="4in"
-                        fileref="figures/os_physical_network_1.png"/>
+                        fileref="figures/os_physical_network.png"/>
                 </imageobject>
             </mediaobject>
         </informalfigure>
@@ -327,40 +337,14 @@
                         linkend="maintenance"/>).</para>
             </listitem>
             <listitem>
-                <para>Add an OpenStack Storage service
-                    (http://docs.openstack.org/havana/install-guide/install/apt/content/ch_swift.html)</para>
+                <para>Add an OpenStack Storage service (see the Object Storage
+                chapter in the <citetitle>OpenStack Installation
+                Guide</citetitle> for your distribution.</para>
             </listitem>
             <listitem>
                 <para>Add additional OpenStack Block Storage hosts
                     (see <xref linkend="maintenance"/>).</para>
             </listitem>
         </itemizedlist>
-        <note><title>What's Next?</title>
-            <para>Congratulations! By now, you should have a solid design for
-                your cloud. We now recommend that you turn to the <link
-                    xlink:title="OpenStack Install and Deploy Manual - Ubuntu"
-                    xlink:href="http://docs.openstack.org/havana/install-guide/install/apt/"
-                    >OpenStack Install and Deploy Manual - Ubuntu</link>
-                (http://docs.openstack.org/havana/install-guide/install/apt/),
-                which contains a step-by-step guide on how to manually install
-                the OpenStack packages and dependencies on your cloud. </para>
-            <para>While it is important for an operator to be familiar with
-                the steps involved in deploying OpenStack, we also strongly
-                encourage you to evaluate configuration management tools such
-                as <glossterm>Puppet</glossterm> or
-                <glossterm>Chef</glossterm> that can help automate this
-                deployment process.</para>
-            <para>In the remainder of the guide, we assume that you have
-                successfully deployed an OpenStack cloud and are able to
-                perform basic operations such as adding images, booting
-                instances, and attaching volumes.</para>
-            <para>As your focus turns to stable operations, we recommend you
-                do an initial skim of the remainder of the book to get a sense
-                of the content. Some of this content is useful to read in
-                advance, so that you can put best practices into effect to
-                simplify your life in the long run. Other content is more
-                useful as a reference that you might refer when an unexpected
-                event occurs, such a power failure or troubleshooting a
-                particular problem.</para></note>
     </section>
 </chapter>
