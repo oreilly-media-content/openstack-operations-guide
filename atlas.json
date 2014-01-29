@@ -4,7 +4,7 @@
   ],
   "formats": {
     "pdf": {
-      "version": "web",
+      "version": "print",
       "toc": true,
       "index": false
     },
