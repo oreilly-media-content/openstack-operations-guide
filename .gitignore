@@ -1,5 +1,4 @@
 .DS_Store
-target/
 *.xpr
 
 # Packages
@@ -9,6 +8,11 @@ target/
 
 # Testenvironment
 .tox
+
+# Build directories
+target/
+publish-docs/
+generated/
 
 # Editors
 *~
