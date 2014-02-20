@@ -22,8 +22,6 @@
         <section xml:id="overview_components_neutron">
             <title>Components</title>
         <informaltable rules="all">
-            <col width="27%"/>
-            <col width="73%"/>
             <tbody>
                 <tr>
                     <td><para>OpenStack release</para></td>
@@ -400,10 +398,10 @@
         <para>The following tables includes example configuration and considerations for both third-party and OpenStack
             components: <table rules="all">
                 <caption>Third-party component configuration</caption>
-                <col width="10%"/>
+                <!--<col width="10%"/>
                 <col width="20%"/>
                 <col width="40%"/>
-                <col width="30%"/>
+                <col width="30%"/>-->
                 <thead>
                     <tr>
                         <th>Component</th>
@@ -512,12 +510,12 @@
             </table>
             <table rules="all">
                 <caption>OpenStack component configuration</caption>
-                <col width="110px"/>
+                <!--<col width="110px"/>
                 <col width="8%"/>
                 <col width="19%"/>
                 <col width="35%"/>
                 <col width="30%"/>
-                <thead>
+                --><thead>
                     <tr>
                         <th>Component</th>
                         <th>Node type</th>

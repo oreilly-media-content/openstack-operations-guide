@@ -159,11 +159,10 @@
         <xi:include href="part_architecture.xml"/>
         <xi:include href="part_operations.xml"/>
         <!-- appendices -->
-        <xi:include href="app_usecases.xml"/>
         <xi:include href="app_crypt.xml"/>
         <xi:include href="app_roadmaps.xml"/>
         <!-- doc history and resources -->
-        <xi:include href="ch_ops_resources.xml"/>
+        <xi:include href="app_ops_resources.xml"/>
         <!-- glossary -->
         <xi:include href="glossary-terms.xml"/>
 </book>

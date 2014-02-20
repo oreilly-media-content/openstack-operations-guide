@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix [
+<!DOCTYPE section [
 <!-- Some useful entities borrowed from HTML -->
 <!ENTITY ndash  "&#x2013;">
 <!ENTITY mdash  "&#x2014;">
 <!ENTITY hellip "&#x2026;">
 <!ENTITY plusmn "&#xB1;">
 ]>
-
-<appendix xmlns="http://docbook.org/ns/docbook"
+<section xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
-    xml:id="use-cases" label="A">
+    xml:id="use-cases">
     <title>Use Cases</title>
     <para>This section contains a small selection of use cases from
         the community with more technical detail than usual. Further
         examples can be found on the <link
             xlink:title="OpenStack User Stories Website"
             xlink:href="https://www.openstack.org/user-stories/"
-            >OpenStack Website</link>
+            >OpenStack Website</link>.
         (https://www.openstack.org/user-stories/)</para>
     <section xml:id="nectar">
         <title>NeCTAR</title>
@@ -258,4 +257,4 @@
             </itemizedlist>
         </section>
     </section>
-</appendix>
+</section>
