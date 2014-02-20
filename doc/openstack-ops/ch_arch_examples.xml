@@ -24,10 +24,11 @@
     terminology mentioned in these architectures.</para>
     <xi:include href="section_arch_example-nova.xml"/>
     <xi:include href="section_arch_example-neutron.xml"/>
+    <xi:include href="section_usecases.xml"/>
     <section xml:id="example_archs_conclusion">
         <title>Parting Thoughts on Architectures</title>
         <para>With so many considerations and options available our hope is to provide a few clearly-marked and tested paths for your OpenStack exploration. If you're looking for additional ideas, check out the <link linkend="use-cases"
-            >Use Cases</link> appendix, the <link xlink:href="http://docs.openstack.org/"
+            >Use Cases</link> section, the <link xlink:href="http://docs.openstack.org/"
                 >OpenStack Installation Guides</link>, or the <link
                     xlink:href="http://openstack.org/user-stories/"
                     >OpenStack User Stories page</link>.</para>

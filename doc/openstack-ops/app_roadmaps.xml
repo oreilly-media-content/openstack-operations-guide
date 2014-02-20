@@ -10,7 +10,7 @@
 <appendix xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
-    xml:id="working-with-roadmaps" label="C">
+    xml:id="working-with-roadmaps" label="B">
     <title>Working with Roadmaps</title>
     <para>The good news: OpenStack has unprecedented transparency when it comes
 to providing information about what's coming up. The bad news: each release
