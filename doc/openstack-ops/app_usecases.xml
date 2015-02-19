@@ -251,9 +251,9 @@
                 <listitem>
                     <para>
                         <link
-                            xlink:href="http://information-technology.web.cern.ch/book/cern-private-cloud-user-guide"
+                            xlink:href="http://clouddocs.web.cern.ch/clouddocs/"
                             >CERN Cloud Infrastructure User
-                            Guide</link> (http://information-technology.web.cern.ch/book/cern-private-cloud-user-guide)</para>
+                            Guide</link> (http://clouddocs.web.cern.ch/clouddocs/)</para>
                 </listitem>
             </itemizedlist>
         </section>
